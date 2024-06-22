@@ -7,13 +7,13 @@ app = FastAPI(title="bedrock")
 
 load_dotenv()
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_credentials=True,
-    allow_origins=["*"],
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# app.add_middleware(
+#    CORSMiddleware,
+#    allow_credentials=True,
+#    allow_origins=["*"],
+#    allow_methods=["*"],
+#    allow_headers=["*"],
+# )
 
 
 @app.get("/check_health")
@@ -22,8 +22,3 @@ async def hello():
 
 
 app.include_router(router, prefix="/api/v1")
-
-
-def main() -> int:
-    print("`rye run uvicorn main:app --reload` to run backend-ai!")
-    return 0
